@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do-list</title>
+    <style>
+        * {box-sizing: border-box; margin:0; padding:0; font-style:normal; font-weight:normal;}
+        #box {border:1px solid #ccc; padding:20px; width:500px; border-radius:10px; margin:20px auto 0;}
+        #box h1 {text-align:center; padding:0 0 20px; font-size:1.2rem;}
+        #box #list_wrap {margin-bottom:50px;}
+        #box #list_wrap li {letter-spacing:-0.02em; list-style:none; border-bottom:1px dashed #aaa; padding:10px 0;}
+        #box #list_wrap li em {font-weight:700;}
+        #box input#list {width:100%;background:#eee; padding:10px; border:0; margin:10px 0;}
+        #box #list_add {border-radius:5px; border:0; cursor:pointer; width:100%; padding:15px 0; background:#333; color:#fff;}
+        #box #list_add:hover {background:#555;}
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <div id="box">
+        <h1>TO-DO-LIST</h1>
+        <ul id="list_wrap">
+            <li class="first"><em>오늘의 할일 목록</em></li>
+            <!-- <li>input value 삽입위치</li> -->
+        </ul>
+        <input type="text" placeholder="오늘 할 일을 작성하고 추가하기를 클릭하세요" id="list">
+        <button type="button" id="list_add">추가하기</button>
+    </div>
+
+    <script>
+
+        // 1. 오늘의 할일 작성하고 추가하기 누르면 콘솔창에 작성한 내용 출력하기
+        // 2-1. 할일 입력 안하고 추가 누를 시 '할일을 입력하세요' 안내메시지 출력
+        // 2-2. 할일 입력 후 추가 누를시만 콘솔창에 작성 내용 출력하기
+        // 3-1. 기존 li태그의 다음 위치에 list.value값을 출력하기
+        const list = document.querySelector('#list')
+        const ul = document.querySelector('#list_wrap')
+        const list_add = document.querySelector('#list_add')
+        let li
+        list_add.addEventListener('click', ()=>{
+            if(list.value == ''){
+                window.alert('click button')
+            }else{
+                li = document.createElement('li')
+                li.innerHTML = list.value+'<button type="button" class="close">X</button>'
+            ul.appendChild(li)
+            li.style.marginTop = '10px'
+            list.value = ''
+            const close = document.querySelectorAll('.close')
+            for(let i of close){
+                i.addEventListener('click',()=>{
+                    // i.parentNode.remove()
+                    i.parentNode.style.textDecoration = 'line-through'
+                })
+            }
+            } /* 반대의 경우라면 != */
+        })
+    </script>
+</body>
+</html>

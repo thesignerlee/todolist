@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node관계연습</title>
+    <style>
+        * {padding:20px; margin:10px;}
+        #wrap {background:aqua;}
+        #wrap #box {background:yellow;}
+        #wrap #box p {background:pink;}
+        #result {background: lightblue;}
+        #result .test {background: lightyellow;}
+        .a {border:5px solid red;
+        color:red; background: coral;
+        animation: opacity 0.5s linear 0.5s both;}
+        .b {animation: opacity 0.5s linear 0.5s both;}
+        @keyframes opacity {
+            0% {opacity:0;}
+            100% {opacity:1;}
+        }
+        .c {}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="box">
+            <p class="first">first</p>
+            <p class="second">second</p>
+            <p class="last">last</p>
+        </div>
+    </div>
+    <div id="result">
+        <p class="test">test</p>
+    </div>
+
+    <script src="/script/node5.js"></script>
+    <!-- <script src="./script/node4.js"></script> -->
+    <!-- <script src="./script/node3.js"></script> -->
+    <!-- <script src="./script/node2.js"></script> -->
+    <!-- <script src="./script/node1.js"></script> -->
+</body>
+</html>

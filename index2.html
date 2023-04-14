@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0413-2</title>
+    <style>
+        * {padding:20px;}
+        #box1 {background:aqua;}
+        #box1 #box2 {background:yellow;}
+        #box1 #box2 .p {background:pink;}
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            <p class="p">1</p>
+            <p class="p">2</p>
+            <p class="p">3</p>
+        </div>
+    </div>
+    <script>
+        const box1 = document.querySelector('#box1')
+        const box2 = document.querySelector('#box2')
+        const p = document.querySelectorAll('.p')
+
+        //node 관계선택(p 기준)
+        console.log(p[0].parentNode) //부모 확인
+        console.log(p[0].parentNode.parentNode) //부모의 부모
+        console.log(p[0].parentNode.parentNode.parentNode) //부모의 부모의 부모
+        console.log(p[0].nextElementSibling) //다음형제
+        console.log(p[1].previousElementSibling) //이전형제
+
+        console.log(box2.childNodes) //공백포함 요소인식
+        console.log(box2.children) //요소만 인식 , 많이 사용
+        console.log(box2.firstChild)//box2의 첫번째 자시그이 공백포함 요소
+        console.log(box2.firstElementChild) //주로 관계 인식 할 때 사용, 선택 기준.
+        console.log(box2.lastChild)
+        console.log(box2.lastElementChild)
+
+        box2.parentNode.firstElementChild // box2
+        // box2.children.parentNode.parentNode // 에러가 남. 인덱스를 설정하지 않았기 때문 - children에
+        console.log(box2.children[0].parentNode.parentNode) //box1
+        p[2].parentNode.lastElementChild.parentNode // box2
+
+    </script>
+</body>
+</html>

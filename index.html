@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0413-1</title>
+    <style>
+        button {padding:20px;}
+        #result {background: aqua; padding:20px;}
+        .a {border:2px solid #000;}
+        .b {font-size:5rem;}
+        .c {color:red; font-weight: 700;}
+        .d {background:yellow;}
+    </style>
+</head>
+<body>
+    <button type="button" id="btn">click!</button>
+    <button type="button" id="reset">reset!</button>
+    <p id="result">변경대상</p>
+    <script>
+        
+        const btn = document.querySelector('#btn')
+        const result = document.querySelector('#result')
+        const reset = document.querySelector('#reset')
+        console.log(btn, result)
+        result.classList.add('a')
+        btn.addEventListener('click',()=>{
+            result.classList.replace('a','b') /* a를 b로 바꾸기, 외부에 a를 미리 설정해놔야 함 */
+            // result.classList.toggle('a') /* 한 버튼으로 두 가지 기능을 제어하고 싶을 때 쓰는 방식 */ /* 복수 안 되고 따로 작성 해야 됨 */
+            /* result.classList.add('a','b') /* 복수 사용 가능 */
+            /* result.classList.add('c') */ /* 단일로도 사용 가능 */
+            // result.className = 'a'
+            // result.className += ' b' /* 대입 연산자 떄문에, 기존을 지우고 새로 덧씌우기 때문에. 복합대입을 할 때 a와 b 사이를 띄워야 함*/
+            // result.className += ' c'
+            // result.className += ' d' /* 얘는 class라서 id보다 순위가 낮아서 백그라운드 줘도 안 덧씌워짐 */
+        })
+        reset.addEventListener('click',()=>{
+            /* result.className = ''  *//* 그냥 빈값으로 넣으면 초기화, a,b,c,d 가 싹 사라지고 class 속성 자체는 남아있음 */
+            result.classList.remove('b','c')
+        })
+
+        //배경색 css
+        //객체.style.속성 = '값'
+
+        //배경색, 글자색, 글꼴, 크기 CSS
+        //객체.style.배경 = '값'
+        //객체.style.글자색 = '값'
+
+        //class {배경, 글자, 글꼴, 크기...속성*10}
+        //객체.classList.add(클래스명)
+
+    </script>
+</body>
+</html>
